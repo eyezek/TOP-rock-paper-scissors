@@ -2,26 +2,6 @@ let availableChoices = ["Rock", "Paper", "Scissors"];
 
 let computerSelection;
 
-let playerSelection;
-
-document.getElementById("endRoundMessage");
-
-document.getElementById("rock").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-};
-
-document.getElementById("paper").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-};
-
-document.getElementById("scissors").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-  return playerSelection;
-};
-
 function getComputerChoice() {
   computerSelection =
     availableChoices[Math.floor(Math.random() * availableChoices.length)];
@@ -29,53 +9,49 @@ function getComputerChoice() {
   return computerSelection;
 }
 
-// function getPlayerChoice() {
-//   playerSelection = this.id;
-//  console.log(playerSelection);
-// }
+let playerSelection;
+
+function getPlayerChoice() {
+  playerSelection = prompt();
+  return playerSelection;
+}
 
 let endRoundMessage;
 
-function playRound() {
+function playRound(getPlayerChoice, getComputerChoice) {
   if (playerSelection == "rock" && computerSelection == "Scissors") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You won! Computer chose Scissors, and Rock beats Scissors!";
-
+    endRoundMessage = "You won! Rock beats Scissors!";
+    console.log(endRoundMessage);
     playerWinCount++;
   } else if (playerSelection == "rock" && computerSelection == "Paper") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You lost... Computer chose Paper, and Paper beats rock!";
-
+    endRoundMessage = "You lost... Paper beats rock!";
+    console.log(endRoundMessage);
     computerWinCount++;
   } else if (playerSelection == "rock" && computerSelection == "Rock") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "Tie! You and the computer both chose Rock!";
+    endRoundMessage = "Tie!";
+    console.log(endRoundMessage);
   } else if (playerSelection == "paper" && computerSelection == "Scissors") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You lost... Computer chose Scissors, and Scissors beats Paper!";
-
+    endRoundMessage = "You lost... Scissors beats Paper!";
+    console.log(endRoundMessage);
     computerWinCount++;
   } else if (playerSelection == "paper" && computerSelection == "Rock") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You won! Computer chose Rock, and Paper beats Rock!";
-
+    endRoundMessage = "You won! Paper beats Rock!";
+    console.log(endRoundMessage);
     playerWinCount++;
   } else if (playerSelection == "paper" && computerSelection == "Paper") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "Tie! You both chose Paper!";
+    endRoundMessage = "Tie!";
+    console.log(endRoundMessage);
   } else if (playerSelection == "scissors" && computerSelection == "Paper") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You won!, Computer chose Paper, and Scissors beats Paper!";
-
+    endRoundMessage = "You won!, Scissors beats Paper!";
+    console.log(endRoundMessage);
     playerWinCount++;
   } else if (playerSelection == "scissors" && computerSelection == "Rock") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "You lost... Computer chose Rock, and Rock beats Scissors!";
-
+    endRoundMessage = "You lost... Rock beats Scissors!";
+    console.log(endRoundMessage);
     computerWinCount++;
   } else if (playerSelection == "scissors" && computerSelection == "Scissors") {
-    document.getElementById("endRoundMessage").innerHTML =
-      "Tie! You both chose Scissors!";
+    endRoundMessage = "Tie!";
+    console.log(endRoundMessage);
   }
 }
 
