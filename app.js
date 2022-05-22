@@ -6,6 +6,8 @@ let playerSelection;
 
 document.getElementById("endRoundMessage");
 
+document.getElementById("endGameMessage");
+
 function getComputerChoice() {
   computerSelection =
     availableChoices[Math.floor(Math.random() * availableChoices.length)];
@@ -13,7 +15,18 @@ function getComputerChoice() {
   return computerSelection;
 }
 
+function checkGameOver() {
+  if (playerWinCount == 5) {
+    document.getElementById("endGameMessage").innerHTML =
+      "You won the game! You won 5 rounds! Refresh to play again!";
+  } else if (computerWinCount == 5) {
+    document.getElementById("endGameMessage").innerHTML =
+      "You lost the game... Computer won 5 rounds! Refresh to play again!";
+  }
+}
+
 document.getElementById("rock").onclick = function playRound() {
+  checkGameOver();
   getComputerChoice();
   playerSelection = this.id;
   if (playerSelection == "rock" && computerSelection == "Scissors") {
@@ -33,6 +46,7 @@ document.getElementById("rock").onclick = function playRound() {
 };
 
 document.getElementById("paper").onclick = function playRound() {
+  checkGameOver();
   getComputerChoice();
   playerSelection = this.id;
   if (playerSelection == "paper" && computerSelection == "Scissors") {
@@ -52,6 +66,7 @@ document.getElementById("paper").onclick = function playRound() {
 };
 
 document.getElementById("scissors").onclick = function playRound() {
+  checkGameOver();
   getComputerChoice();
   playerSelection = this.id;
   if (playerSelection == "scissors" && computerSelection == "Paper") {
