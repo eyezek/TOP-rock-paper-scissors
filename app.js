@@ -6,28 +6,69 @@ let playerSelection;
 
 document.getElementById("endRoundMessage");
 
-document.getElementById("rock").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-};
-
-document.getElementById("paper").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-};
-
-document.getElementById("scissors").onclick = function getPlayerChoice() {
-  playerSelection = this.id;
-  console.log(playerSelection);
-  return playerSelection;
-};
-
 function getComputerChoice() {
   computerSelection =
     availableChoices[Math.floor(Math.random() * availableChoices.length)];
   console.log(computerSelection);
   return computerSelection;
 }
+
+document.getElementById("rock").onclick = function playRound() {
+  getComputerChoice();
+  playerSelection = this.id;
+  if (playerSelection == "rock" && computerSelection == "Scissors") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You won! Computer chose Scissors, and Rock beats Scissors!";
+
+    playerWinCount++;
+  } else if (playerSelection == "rock" && computerSelection == "Paper") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You lost... Computer chose Paper, and Paper beats rock!";
+
+    computerWinCount++;
+  } else if (playerSelection == "rock" && computerSelection == "Rock") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "Tie! You and the computer both chose Rock!";
+  }
+};
+
+document.getElementById("paper").onclick = function playRound() {
+  getComputerChoice();
+  playerSelection = this.id;
+  if (playerSelection == "paper" && computerSelection == "Scissors") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You lost... Computer chose Scissors, and Scissors beats Paper!";
+
+    computerWinCount++;
+  } else if (playerSelection == "paper" && computerSelection == "Rock") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You won! Computer chose Rock, and Paper beats Rock!";
+
+    playerWinCount++;
+  } else if (playerSelection == "paper" && computerSelection == "Paper") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "Tie! You both chose Paper!";
+  }
+};
+
+document.getElementById("scissors").onclick = function playRound() {
+  getComputerChoice();
+  playerSelection = this.id;
+  if (playerSelection == "scissors" && computerSelection == "Paper") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You won!, Computer chose Paper, and Scissors beats Paper!";
+
+    playerWinCount++;
+  } else if (playerSelection == "scissors" && computerSelection == "Rock") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "You lost... Computer chose Rock, and Rock beats Scissors!";
+
+    computerWinCount++;
+  } else if (playerSelection == "scissors" && computerSelection == "Scissors") {
+    document.getElementById("endRoundMessage").innerHTML =
+      "Tie! You both chose Scissors!";
+  }
+};
 
 // function getPlayerChoice() {
 //   playerSelection = this.id;
@@ -92,4 +133,4 @@ function game() {
   }
 }
 
-game();
+// game();
