@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+  background-color: black;
+}
+
+h1 {
+  font-size: 80px;
+  margin-top: 50px;
+  text-align: center;
+  font-family: "Finger Paint", "Poppins", sans-serif;
+}
+h2 {
+  font-size: 60px;
+  margin-top: 50px;
+  font-family: "Finger Paint", "Poppins", sans-serif;
+  text-align: center;
+}
+h3 {
+  font-size: 40px;
+  margin-top: 30px;
+  text-align: center;
+  font-family: "Finger Paint", "Poppins", sans-serif;
+}
+.buttons {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button {
+  color: white;
+  background-color: gray;
+  font-size: 30px;
+  text-align: center;
+  margin-right: 30px;
+  font-family: "Finger Paint";
+  width: 160px;
+  height: 160px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
